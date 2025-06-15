@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Javier Rifa'at Amanullah</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Header Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-50px) translateY(-50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: #3498db;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .profile-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .profile-info p {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: #f8f9fa;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .project-features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .project-features li {
+            padding: 0.3rem 0;
+            color: #555;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .project-features li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+
+        /* Experience & Language */
+        .experience-languages {
+            background: #f8f9fa;
+        }
+
+        .exp-lang-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .exp-card, .lang-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .exp-item, .lang-item {
+            padding: 1rem;
+            margin: 1rem 0;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+        }
+
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .exp-lang-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">JRA</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Beranda</a></li>
+                <li><a href="#about" class="nav-link">Tentang</a></li>
+                <li><a href="#projects" class="nav-link">Proyek</a></li>
+                <li><a href="#skills" class="nav-link">Keahlian</a></li>
+                <li><a href="#experience" class="nav-link">Pengalaman</a></li>
+                <li><a href="#contact" class="nav-link">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Javier Rifa'at Amanullah</h1>
+            <h2>Mahasiswa Teknik Informatika | Full Stack Developer</h2>
+            <a href="#about" class="cta-button">Kenali Saya Lebih Dekat</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="about-content">
+                <div class="profile-card">
+                    <div class="profile-avatar">JR</div>
+                    <div class="profile-info">
+                        <h3>Javier Rifa'at Amanullah</h3>
+                        <p>📍 Karawang, Jawa Barat</p>
+                        <p>🎓 Mahasiswa S1 Teknik Informatika</p>
+                        <p>🏫 Universitas Buana Perjuangan Karawang</p>
+                        <p>📚 Alumni SMAN 3 Karawang Barat</p>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>Saya adalah mahasiswa Teknik Informatika yang passionate dalam pengembangan aplikasi web dan mobile. Dengan pengalaman dalam berbagai proyek full-stack, saya memiliki keahlian dalam PHP, JavaScript, Python, serta framework seperti Laravel dan Ionic.</p>
+                    
+                    <p>Sebagai seseorang yang aktif dalam organisasi dan sering memimpin tim, saya memiliki kemampuan komunikasi yang baik dan pengalaman sebagai public speaker. Saya senang menghadapi tantangan baru dalam dunia teknologi dan selalu berusaha untuk terus belajar dan berkembang.</p>
+                    
+                    <p>Di waktu luang, saya aktif membuat konten game, bermain musik, dan berolahraga. Saya percaya bahwa keseimbangan antara teknologi dan aktivitas lainnya membuat saya menjadi developer yang lebih kreatif dan inovatif.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <h2 class="section-title">Proyek Pengalaman</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>🎪 Website Event Organizer Dinamis</h3>
+                    <p><strong>Admin Features:</strong></p>
+                    <ul class="project-features">
+                        <li>Login/Registrasi dengan sistem anti-bot</li>
+                        <li>CRUD event dan pembuatan form pendaftaran</li>
+                        <li>Presensi via QR Code</li>
+                        <li>Manajemen data user dan kontrol akses</li>
+                    </ul>
+                    <p><strong>User Features:</strong></p>
+                    <ul class="project-features">
+                        <li>Pembayaran terintegrasi Midtrans</li>
+                        <li>Pengisian dan edit form pendaftaran</li>
+                        <li>Generate QR Code untuk presensi</li>
+                        <li>Update profil pengguna</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3>🚌 Website Pemesanan Tiket Bus</h3>
+                    <p><strong>Admin Features:</strong></p>
+                    <ul class="project-features">
+                        <li>CRUD dinamis untuk manajemen sistem</li>
+                        <li>Kelola data user dan rute perjalanan</li>
+                        <li>Dashboard monitoring pemesanan</li>
+                    </ul>
+                    <p><strong>User Features:</strong></p>
+                    <ul class="project-features">
+                        <li>Pemesanan tiket dengan pilihan jam/tanggal</li>
+                        <li>Pembayaran melalui Midtrans</li>
+                        <li>Generate QR Code untuk keberangkatan</li>
+                        <li>Riwayat perjalanan</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3>🍔 Web & App Restoran Cepat Saji</h3>
+                    <p><strong>Teknologi:</strong> Web + Ionic Mobile App</p>
+                    <ul class="project-features">
+                        <li><strong>Admin:</strong> CRUD menu, diskon, rating koki, manajemen meja</li>
+                        <li><strong>Kasir:</strong> Sistem pembayaran (cash/cashless), kelola meja, proses reservasi</li>
+                        <li><strong>Koki:</strong> Interface untuk melihat dan memproses pesanan dine-in dan online</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3>🥘 Web & App Sistem Catering</h3>
+                    <p><strong>Teknologi:</strong> Web + Ionic Mobile App</p>
+                    <ul class="project-features">
+                        <li>Sistem pemesanan catering online</li>
+                        <li>Manajemen menu dan paket catering</li>
+                        <li>Tracking order dan delivery</li>
+                        <li><em>SOP dan fitur detail sedang dikembangkan</em></li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3>⏰ Sistem Kontrol Waktu Laptop</h3>
+                    <p><strong>Teknologi:</strong> Python Desktop Application</p>
+                    <ul class="project-features">
+                        <li>Monitoring waktu aktif di depan laptop</li>
+                        <li>Peringatan otomatis setelah 30 menit</li>
+                        <li>Auto-pause saat tidak ada aktivitas</li>
+                        <li>Tracking mouse dan keyboard activity</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3>💰 Website Tracking Pengeluaran</h3>
+                    <p><strong>Personal Finance Management</strong></p>
+                    <ul class="project-features">
+                        <li>Pencatatan pengeluaran harian</li>
+                        <li>Kategorisasi transaksi</li>
+                        <li>Laporan keuangan personal</li>
+                        <li>Dashboard monitoring budget</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Keahlian Teknis</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🔧 Bahasa Pemrograman</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>PHP</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🚀 Framework & Tools</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Laravel</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Ionic</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>MySQL</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🌐 Bahasa</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Bahasa Indonesia</span>
+                            <span>Native</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Bahasa Inggris</span>
+                            <span>Aktif</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Bahasa Spanyol</span>
+                            <span>Dasar-Menengah</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Hobbies Section -->
+    <section id="experience" class="section experience-languages">
+        <div class="container">
+            <h2 class="section-title">Pengalaman & Aktivitas</h2>
+            <div class="exp-lang-grid">
+                <div class="exp-card">
+                    <h3>👥 Pengalaman Organisasi</h3>
+                    <div class="exp-item">
+                        <h4>Ketua Tim Final Project</h4>
+                        <p>Memimpin 2 tim final project dengan sukses, mengelola timeline, koordinasi anggota, dan presentasi hasil kepada dosen pembimbing.</p>
+                    </div>
+                    <div class="exp-item">
+                        <h4>Public Speaker Aktif</h4>
+                        <p>Sering memimpin presentasi teknis, workshop, dan sharing session. Berpengalaman dalam komunikasi publik dan transfer knowledge.</p>
+                    </div>
+                </div>
+
+                <div class="lang-card">
+                    <h3>🎯 Hobi & Aktivitas Lain</h3>
+                    <div class="lang-item">
+                        <h4>Content Creator</h4>
+                        <p>Aktif membuat konten game PUBG di platform YouTube dan TikTok, dengan fokus pada gameplay tips dan entertainment.</p>
+                    </div>
+                    <div class="lang-item">
+                        <h4>Olahraga & Musik</h4>
+                        <p>Rutin bermain badminton dan jogging untuk menjaga kebugaran. Hobi bermain gitar dan bernyanyi sebagai outlet kreatif.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title" style="color: white;">Hubungi Saya</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Mari berkolaborasi dan ciptakan sesuatu yang luar biasa bersama!</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>javier.rifaat@email.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>+62 xxx-xxxx-xxxx</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Karawang, Jawa Barat</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>💼</span>
+                        <span>Available for Projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-link, .cta-button').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Animate skill bars when skills section is visible
+                    if (entry.target.id === 'skills') {
+                        animateSkillBars();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Animate skill bars
+        function animateSkillBars() {
+            document.querySelectorAll('.skill-progress').forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 200);
+            });
+        }
+
+        // Scroll indicator
+        window.addEventListener('scroll', function() {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('scrollIndicator').style.width = scrolled + '%';
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Project cards hover effect
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add typing effect to hero section
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect after page load
+        window.addEventListener('load', function() {
+            const heroTitle = document.querySelector('.hero h1');
+            const heroSubtitle = document.querySelector('.hero h2');
+            
+            setTimeout(() => {
+                typeWriter(heroTitle, 'Javier Rifa\'at Amanullah', 80);
+            }, 500);
+            
+            setTimeout(() => {
+                typeWriter(heroSubtitle, 'Mahasiswa Teknik Informatika | Full Stack Developer', 60);
+            }, 3000);
+        });
+
+        // Add active navigation highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.style.color = '#333';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.color = '#3498db';
+                    link.style.fontWeight = '600';
+                } else {
+                    link.style.fontWeight = '500';
+                }
+            });
+        });
+
+        // Mobile menu toggle (for responsive design)
+        function createMobileMenu() {
+            const navbar = document.querySelector('.nav-container');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            // Create hamburger button
+            const hamburger = document.createElement('button');
+            hamburger.classList.add('hamburger');
+            hamburger.innerHTML = '☰';
+            hamburger.style.cssText = `
+                display: none;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: #333;
+            `;
+            
+            navbar.appendChild(hamburger);
+            
+            // Toggle mobile menu
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('mobile-active');
+            });
+            
+            // Close menu when clicking on links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('mobile-active');
+                });
+            });
+        }
+
+        // Initialize mobile menu
+        createMobileMenu();
+
+        // Add some interactive elements
+        document.querySelectorAll('.profile-card, .skill-category, .exp-card, .lang-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.08)';
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.scrollY;
+            const heroContent = document.querySelector('.hero-content');
+            const hero = document.querySelector('.hero');
+            
+            if (scrolled < hero.offsetHeight) {
+                heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+                heroContent.style.opacity = 1 - (scrolled / hero.offsetHeight);
+            }
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+
+    <style>
+        /* Additional mobile styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block !important;
+            }
+            
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-menu.mobile-active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-menu li {
+                margin: 0.5rem 0;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Additional animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .project-card:nth-child(odd) {
+            animation: slideInLeft 0.8s ease forwards;
+        }
+
+        .project-card:nth-child(even) {
+            animation: slideInRight 0.8s ease forwards;
+        }
+
+        /* Enhance visual effects */
+        .section-title {
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Improved hover effects */
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Footer-like styling for contact section */
+        .contact {
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2980b9, #e74c3c, #f39c12);
+        }
+    </style>
+</body>
+</html>
